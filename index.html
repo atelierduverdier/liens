@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -285,7 +285,7 @@
         var sauve = null;
         try { sauve = localStorage.getItem(KEY); } catch (e) {}
         if (sauve === 'light' || sauve === 'dark') return sauve;
-        return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        return 'light'; // clair par defaut (au lieu de suivre le systeme)
       }
 
       function appliquer(theme) {
@@ -316,7 +316,7 @@
       window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', function(e) {
         var sauve = null;
         try { sauve = localStorage.getItem(KEY); } catch (e2) {}
-        if (!sauve) appliquer(e.matches ? 'light' : 'dark');
+        if (!sauve) appliquer('light');
       });
     })();
   </script>
