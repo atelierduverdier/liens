@@ -320,5 +320,20 @@
       });
     })();
   </script>
+<!-- GoatCounter — même compte que les autres sites de l'atelier, sans cookie
+     ni tiers publicitaire.
+
+     LE PRÉFIXE N'EST PAS UN ORNEMENT. count.js envoie le CHEMIN, jamais le
+     nom d'hôte (vérifié le 12/08/2026). Cette page est un « / », comme le
+     journal PrintNC : sans « /liens », les deux tomberaient dans le même
+     seau. C'est le nouveau venu qui se préfixe ; le journal garde ses mois
+     d'historique. -->
+<script>
+  window.goatcounter = {
+    path: function (p) { return '/liens' + p }
+  };
+</script>
+<script data-goatcounter="https://atelierduverdier.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
