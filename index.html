@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="fr" data-theme="light">
+<html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Atelier du Verdier &mdash; Liens</title>
-<meta name="description" content="Tous les liens de l'Atelier du Verdier : le site de ma PrintNC, Instagram, YouTube et GitHub. CNC, fabrication numérique et bricolage en Normandie.">
+<meta name="description" content="Tous les liens de l'Atelier du Verdier : le site de l'atelier, le journal de ma PrintNC, LaserAtelier, Instagram, YouTube et GitHub. CNC, fabrication numérique et bricolage en Normandie.">
+
 <!-- Open Graph (partage Instagram, WhatsApp, Facebook...) -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Atelier du Verdier — Mes liens">
-<meta property="og:description" content="CNC, fabrication numérique et bricolage. Le site de ma PrintNC, Instagram, YouTube et GitHub.">
+<meta property="og:description" content="CNC, fabrication numérique et bricolage. Le site de l'atelier, le journal de ma PrintNC, Instagram, YouTube et GitHub.">
 <meta property="og:url" content="https://liens.atelierduverdier.fr/">
 <meta property="og:image" content="https://liens.atelierduverdier.fr/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -17,309 +18,266 @@
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Atelier du Verdier — Mes liens">
-<meta name="twitter:description" content="CNC, fabrication numérique et bricolage. Le site de ma PrintNC, Instagram, YouTube et GitHub.">
+<meta name="twitter:description" content="CNC, fabrication numérique et bricolage. Le site de l'atelier, le journal de ma PrintNC, Instagram, YouTube et GitHub.">
 <meta name="twitter:image" content="https://liens.atelierduverdier.fr/og-image.png">
-<!-- Favicons -->
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta name="theme-color" content="#13110e">
+
+<!-- Favicons. Le SVG est le chapeau DU KIT (verdier-chapeau.svg) : la copie
+     locale qui traînait ici sous le nom favicon.svg dessinait exactement le
+     même chapeau, avec les mêmes quatre chemins et les mêmes couleurs — une
+     divergence en attente. -->
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="verdier-chapeau.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#14171b">
+
+<!-- Anti-clignotement : pose le thème choisi AVANT que la feuille de style ne
+     peigne. Repris tel quel de kit/entete.html — verdier.js est chargé en fin
+     de page, sans ce petit script un visiteur en thème sombre verrait la page
+     claire une fraction de seconde à chaque chargement. -->
+<script>
+(function(){try{
+  var m=document.cookie.match(/(?:^|;\s*)verdier-theme=(light|dark)/);
+  var v=m?m[1]:localStorage.getItem('verdier-theme');
+  if(v)document.documentElement.setAttribute('data-theme',v);
+}catch(e){}})();
+</script>
+
+<!-- LA CHARTE. Les jetons viennent du kit commun (dépôt atelierduverdier/site),
+     posés ici par outils/diffuser_kit.py : on ne les édite PAS dans cette copie.
+     Cette page a sa propre mise en page — une carte centrée, ni barre du haut ni
+     sections — donc elle prend les jetons seuls, pas verdier.css en entier.
+     La balise <html> ne porte volontairement PAS de data-theme en dur : le
+     `data-theme="light"` qui était écrit ici l'emportait sur
+     @media (prefers-color-scheme: dark), et un visiteur en thème sombre
+     recevait la page blanche. -->
+<link rel="stylesheet" href="verdier-jetons.css">
 <style>
-  :root{
-    --bg:#13110e; --surface:#1c1916; --surface2:#252019;
-    --text:#f0ebe2; --muted:#a89e8c; --faint:#6b6356;
-    --orange:#e8821e; --line:#332d24;
-  }
-  :root[data-theme="light"]{
-    --bg:#faf7f2; --surface:#ffffff; --surface2:#f3ede3;
-    --text:#1c1916; --muted:#6b6356; --faint:#a89e8c;
-    --orange:#d9730d; --line:#e4dccf;
-  }
-  html{transition:background .25s ease;}
-  body,.link{transition:background .25s ease, color .25s ease, border-color .16s ease, transform .16s ease;}
-  *{box-sizing:border-box; margin:0; padding:0;}
+  *{box-sizing:border-box; margin:0; padding:0}
+
   body{
     background:var(--bg);
+    /* Le halo orange du héros de la charte, ramené à une page centrée. */
     background-image:
-      radial-gradient(ellipse 90% 70% at 50% -15%, color-mix(in srgb, var(--orange) 10%, transparent), transparent 65%),
-      radial-gradient(ellipse 80% 55% at 50% 112%, color-mix(in srgb, var(--orange) 5%, transparent), transparent 65%);
+      radial-gradient(900px 420px at 50% -140px, color-mix(in srgb, var(--orange) 18%, transparent), transparent 62%),
+      radial-gradient(700px 320px at 50% 112%, color-mix(in srgb, var(--orange) 8%, transparent), transparent 65%);
     background-attachment:fixed;
-    color:var(--text);
-    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-    line-height:1.6;
+    color:var(--fg);
+    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
     min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    padding:40px 20px;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    padding:48px 20px;
   }
-  .card{
-    width:100%;
-    max-width:440px;
-    text-align:center;
-  }
-  .logo{
-    max-width:200px;
-    height:auto;
-    margin:0 auto 22px;
-    display:block;
-  }
+  :focus-visible{outline:2px solid var(--orange); outline-offset:2px; border-radius:4px}
+
+  .carte-liens{width:100%; max-width:460px; text-align:center}
+
+  /* La marque : le chapeau seul. Il est NOIR et porte son propre liseré blanc
+     — c'est ce liseré qui le détache du fond sombre, et c'est pour ça qu'il
+     tient dans les deux thèmes sans être repeint. Le logo complet n'est pas
+     employé ici : en <img> son mot-symbole ne suit que le réglage du système,
+     donc il deviendrait illisible pour qui bascule le thème à la main. */
+  .chapeau{height:64px; width:auto; display:block; margin:0 auto 20px}
+
   .kicker{
-    font-size:13px;
-    letter-spacing:3px;
-    color:var(--orange);
-    text-transform:uppercase;
-    margin-bottom:10px;
+    display:inline-block; color:var(--orange-d);
+    font-weight:700; font-size:.82rem; letter-spacing:.08em; text-transform:uppercase;
+    margin-bottom:4px;
   }
   h1{
-    font-size:30px;
-    font-weight:800;
-    letter-spacing:-.8px;
-    margin-bottom:8px;
-    background:linear-gradient(120deg, var(--text) 60%, var(--orange));
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
+    font-size:2.2rem; font-weight:700; line-height:1.25; letter-spacing:-.02em;
+    color:var(--fg); margin-bottom:.1em;
   }
-  .tagline{
-    font-size:15px;
-    color:var(--muted);
-    margin-bottom:18px;
-  }
+  .accroche{font-size:1.06rem; color:var(--fg-2); margin-bottom:14px}
   .intro{
-    font-size:14px;
-    line-height:1.7;
-    color:var(--muted);
-    max-width:380px;
-    margin:0 auto 32px;
+    font-size:.95rem; color:var(--fg-2);
+    max-width:40ch; margin:0 auto 30px;
   }
-  .intro em{
-    color:var(--orange);
-    font-style:italic;
-  }
-  .links{
-    display:flex;
-    flex-direction:column;
-    gap:14px;
-  }
-  .link{
-    display:flex;
-    align-items:center;
-    gap:14px;
-    background:var(--surface);
-    border:1px solid var(--line);
-    border-radius:12px;
-    padding:16px 20px;
-    text-decoration:none;
-    color:var(--text);
-    font-size:16px;
-    font-weight:500;
-    transition:border-color .16s, background .16s, transform .16s, box-shadow .16s;
-    opacity:0;
-    transform:translateY(12px);
+  .intro em{color:var(--orange-d); font-style:italic}
+
+  .liens{display:flex; flex-direction:column; gap:12px}
+
+  /* Une ligne de lien reprend la carte de la charte : fond --card, bordure
+     --line, rayon --radius, ombre --shadow, bordure orange au survol. */
+  .lien{
+    display:flex; align-items:center; gap:13px; text-align:left;
+    background:var(--card); border:1px solid var(--line);
+    border-radius:var(--radius); box-shadow:var(--shadow);
+    padding:14px 18px;
+    text-decoration:none; color:var(--fg);
+    font-size:1rem; font-weight:600;
+    transition:border-color .16s, transform .16s, box-shadow .16s;
+    opacity:0; transform:translateY(12px);
     animation:apparition .5s ease forwards;
   }
-  .links .link:nth-child(1){animation-delay:.05s;}
-  .links .link:nth-child(2){animation-delay:.13s;}
-  .links .link:nth-child(3){animation-delay:.21s;}
-  .links .link:nth-child(4){animation-delay:.29s;}
-  .links .link:nth-child(5){animation-delay:.37s;}
-  @keyframes apparition{to{opacity:1; transform:translateY(0);}}
+  .liens .lien:nth-child(1){animation-delay:.04s}
+  .liens .lien:nth-child(2){animation-delay:.10s}
+  .liens .lien:nth-child(3){animation-delay:.16s}
+  .liens .lien:nth-child(4){animation-delay:.22s}
+  .liens .lien:nth-child(5){animation-delay:.28s}
+  .liens .lien:nth-child(6){animation-delay:.34s}
+  .liens .lien:nth-child(7){animation-delay:.40s}
+  @keyframes apparition{to{opacity:1; transform:translateY(0)}}
   @media (prefers-reduced-motion: reduce){
-    .link{animation:none; opacity:1; transform:none;}
-    html, body, .link, .theme-toggle{transition:none;}
+    .lien{animation:none; opacity:1; transform:none; transition:none}
+    .theme-btn{transition:none}
   }
-  .link:hover{
+
+  .lien:hover{
     border-color:var(--marque, var(--orange));
-    background:var(--surface2);
     transform:translateY(-2px);
-    box-shadow:0 6px 22px -10px var(--marque, var(--orange));
+    box-shadow:0 8px 24px -12px var(--marque, var(--orange));
   }
-  /* Couleurs de marque par lien */
-  .link.site{--marque:#e8821e;}
-  .link.instagram{--marque:#e1306c;}
-  .link.youtube{--marque:#ff0000;}
-  .link.github{--marque:#8b96a3;}
-  .link.kofi{--marque:#e8821e;}
-  .link.laser{--marque:#ff3b30;}
-  .link:hover .ico{color:var(--marque, var(--orange));}
-  .link .ico{
-    width:26px;
-    height:26px;
-    flex-shrink:0;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:var(--orange);
-    transition:color .16s;
+
+  /* Les couleurs de marque des plateformes sont des ACCENTS DE CONTENU, pas
+     une seconde charte : elles ne servent qu'au survol et à la pastille, le
+     reste de la ligne reste aux jetons du kit. Même arrangement que les
+     quatre couleurs de phase du journal PrintNC. */
+  .lien.site{--marque:var(--orange)}
+  .lien.printnc{--marque:#4f7fd1}
+  .lien.laser{--marque:#ff3b30}
+  .lien.instagram{--marque:#e1306c}
+  .lien.youtube{--marque:#ff0000}
+  .lien.github{--marque:#8b96a3}
+  .lien.kofi{--marque:#ff5e5b}
+
+  /* La pastille d'icône de la charte (.carte .ci) : 34 px, rayon 9, fond
+     --orange-soft. Au survol elle prend la couleur de la plateforme. */
+  .ci{
+    width:34px; height:34px; border-radius:9px; flex:none;
+    display:grid; place-items:center;
+    background:var(--orange-soft); color:var(--orange-d);
+    transition:background .16s, color .16s;
   }
-  .link .ico svg{width:24px; height:24px; fill:currentColor;}
-  .link .txt{
-    flex:1;
-    text-align:left;
+  .ci svg{width:19px; height:19px; fill:currentColor; display:block}
+  .lien:hover .ci{
+    background:color-mix(in srgb, var(--marque, var(--orange)) 16%, transparent);
+    color:var(--marque, var(--orange));
   }
-  .link .txt .sub{
-    display:block;
-    font-size:12px;
-    color:var(--faint);
-    font-weight:400;
+
+  .txt{flex:1; min-width:0}
+  .txt .sub{
+    display:block; font-size:.82rem; font-weight:400; color:var(--fg-3);
+    line-height:1.45; margin-top:1px;
   }
-  .link .arrow{
-    color:var(--faint);
-    font-size:18px;
-    transition:.16s;
+  .fleche{color:var(--fg-3); font-size:1.15rem; transition:color .16s, transform .16s}
+  .lien:hover .fleche{color:var(--marque, var(--orange)); transform:translateX(3px)}
+
+  footer{margin-top:32px; color:var(--fg-3); font-size:.85rem}
+  footer a{color:var(--fg-3); text-decoration:none; border-bottom:1px solid var(--line-2)}
+  footer a:hover{color:var(--orange-d); border-bottom-color:var(--orange)}
+
+  /* Le bouton ◐ de la charte, posé en coin plutôt que dans une barre du haut
+     qui n'existe pas ici. Sa classe .theme-btn est ce que verdier.js câble ;
+     le choix part dans un cookie de domaine, donc il suit le visiteur sur
+     atelierduverdier.fr et laser.atelierduverdier.fr. */
+  .theme-btn{
+    position:fixed; top:16px; right:16px;
+    width:38px; height:38px; border-radius:9px; flex:none;
+    border:1px solid var(--line-2); background:var(--card); color:var(--fg-2);
+    font-size:1.05rem; cursor:pointer;
+    transition:color .16s, border-color .16s, transform .16s;
   }
-  .link:hover .arrow{color:var(--orange); transform:translateX(3px);}
-  footer{
-    margin-top:36px;
-    font-size:13px;
-    color:var(--faint);
-  }
-  .theme-toggle{
-    position:fixed;
-    top:18px;
-    right:18px;
-    width:42px;
-    height:42px;
-    border-radius:50%;
-    border:1px solid var(--line);
-    background:var(--surface);
-    color:var(--orange);
-    cursor:pointer;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    transition:.16s;
-  }
-  .theme-toggle:hover{
-    border-color:var(--orange);
-    transform:translateY(-2px);
-  }
-  .theme-toggle svg{width:20px; height:20px; fill:currentColor;}
-  .theme-toggle .sun{display:none;}
-  :root[data-theme="light"] .theme-toggle .sun{display:block;}
-  :root[data-theme="light"] .theme-toggle .moon{display:none;}
+  .theme-btn:hover{color:var(--fg); border-color:var(--orange); transform:translateY(-1px)}
 </style>
 </head>
 <body>
-  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Basculer jour / nuit" title="Basculer jour / nuit">
-    <svg class="moon" viewBox="0 0 24 24"><path d="M12.3 2a9 9 0 1 0 9.4 11.9.5.5 0 0 0-.7-.6 7 7 0 0 1-9.3-9.3.5.5 0 0 0-.6-.7 9 9 0 0 0-.2 0z"/></svg>
-    <svg class="sun" viewBox="0 0 24 24"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0-5a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0V3a1 1 0 0 1 1-1zm0 16a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0v-2a1 1 0 0 1 1-1zM4.2 4.2a1 1 0 0 1 1.4 0l1.4 1.4a1 1 0 0 1-1.4 1.4L4.2 5.6a1 1 0 0 1 0-1.4zm12.8 12.8a1 1 0 0 1 1.4 0l1.4 1.4a1 1 0 0 1-1.4 1.4l-1.4-1.4a1 1 0 0 1 0-1.4zM2 12a1 1 0 0 1 1-1h2a1 1 0 0 1 0 2H3a1 1 0 0 1-1-1zm16 0a1 1 0 0 1 1-1h2a1 1 0 0 1 0 2h-2a1 1 0 0 1-1-1zM4.2 19.8a1 1 0 0 1 0-1.4l1.4-1.4a1 1 0 0 1 1.4 1.4l-1.4 1.4a1 1 0 0 1-1.4 0zm12.8-12.8a1 1 0 0 1 0-1.4l1.4-1.4a1 1 0 0 1 1.4 1.4l-1.4 1.4a1 1 0 0 1-1.4 0z"/></svg>
-  </button>
 
-  <div class="card">
+<button class="theme-btn" type="button" title="Thème clair / sombre"
+        aria-label="Basculer entre le thème clair et le thème sombre">◐</button>
 
-    <img class="logo" src="https://raw.githubusercontent.com/atelierduverdier/printnc-config/main/PrintNC.png" alt="Logo Atelier du Verdier" onerror="this.style.display='none'">
+<main class="carte-liens">
 
-    <div class="kicker">Atelier du Verdier</div>
-    <h1>Mes liens</h1>
-    <p class="tagline">CNC, fabrication numérique et bricolage</p>
-    <p class="intro">
-      Bricoleur normand. Quatre mois pour construire ma CNC PrintNC de mes mains, <em>doucement mais sûrement</em>&nbsp;— un échec à la fois transformé en leçon. Bienvenue dans l'atelier.
-    </p>
+  <img class="chapeau" src="verdier-chapeau.svg" alt="" width="71" height="45">
 
-    <div class="links">
+  <span class="kicker">Atelier du Verdier</span>
+  <h1>Mes liens</h1>
+  <p class="accroche">CNC, fabrication numérique et bricolage</p>
+  <p class="intro">
+    Bricoleur normand. Quatre mois pour construire ma CNC PrintNC de mes mains,
+    <em>doucement mais sûrement</em>&nbsp;— un échec à la fois transformé en leçon.
+    Bienvenue dans l'atelier.
+  </p>
 
-      <a class="link site" href="https://atelierduverdier.fr/" target="_blank" rel="noopener">
-        <span class="ico">
-          <svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5zm0 7.5L4.5 6 12 2.5 19.5 6 12 9.5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        </span>
-        <span class="txt">Le site de ma PrintNC<span class="sub">Journal de construction & documentation</span></span>
-        <span class="arrow">&rsaquo;</span>
-      </a>
+  <div class="liens">
 
-      <a class="link laser" href="https://laser.atelierduverdier.fr/" target="_blank" rel="noopener">
-        <span class="ico">
-          <svg viewBox="0 0 24 24"><path d="M9 2.5h6l-1.6 9.5h-2.8L9 2.5zm3 11.5a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
-        </span>
-        <span class="txt">Mon atelier laser<span class="sub">LaserAtelier &middot; graver & découper au laser sur ma PrintNC</span></span>
-        <span class="arrow">&rsaquo;</span>
-      </a>
+    <a class="lien site" href="https://atelierduverdier.fr/" target="_blank" rel="noopener">
+      <span class="ci">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
+      </span>
+      <span class="txt">Le site de l'atelier<span class="sub">Les logiciels, les projets, la documentation</span></span>
+      <span class="fleche" aria-hidden="true">&rsaquo;</span>
+    </a>
 
-      <a class="link instagram" href="https://www.instagram.com/atelierduverdier" target="_blank" rel="noopener">
-        <span class="ico">
-          <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.86s0 3.6-.07 4.86c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.9.07s-3.6 0-4.86-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.6 2.2 15.2 2.2 12s0-3.6.07-4.86c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.4 2.21 8.8 2.2 12 2.2zm0 1.8c-3.15 0-3.5 0-4.74.07-.9.04-1.38.2-1.7.32-.43.17-.74.37-1.06.7-.32.31-.52.62-.69 1.05-.12.32-.28.8-.32 1.7C3.2 9.1 3.2 9.45 3.2 12s0 2.9.07 4.13c.04.9.2 1.38.32 1.7.17.43.37.74.7 1.06.31.32.62.52 1.05.69.32.12.8.28 1.7.32 1.24.06 1.6.07 4.74.07s3.5 0 4.74-.07c.9-.04 1.38-.2 1.7-.32.43-.17.74-.37 1.06-.7.32-.31.52-.62.69-1.05.12-.32.28-.8.32-1.7.06-1.24.07-1.6.07-4.13s0-2.9-.07-4.13c-.04-.9-.2-1.38-.32-1.7a2.8 2.8 0 0 0-.7-1.06 2.8 2.8 0 0 0-1.05-.69c-.32-.12-.8-.28-1.7-.32C15.5 4 15.15 4 12 4zm0 3.06A4.94 4.94 0 1 0 12 17a4.94 4.94 0 0 0 0-9.88zM12 15.2A3.2 3.2 0 1 1 12 8.8a3.2 3.2 0 0 1 0 6.4zm6.3-8.34a1.15 1.15 0 1 1-2.3 0 1.15 1.15 0 0 1 2.3 0z"/></svg>
-        </span>
-        <span class="txt">Instagram<span class="sub">@atelierduverdier &middot; mes vidéos au quotidien</span></span>
-        <span class="arrow">&rsaquo;</span>
-      </a>
+    <a class="lien printnc" href="https://printnc.atelierduverdier.fr/" target="_blank" rel="noopener">
+      <span class="ci">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 2 7l10 5 10-5-10-5zm0 7.5L4.5 6 12 2.5 19.5 6 12 9.5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </span>
+      <span class="txt">Ma PrintNC<span class="sub">Le journal de construction, pas à pas</span></span>
+      <span class="fleche" aria-hidden="true">&rsaquo;</span>
+    </a>
 
-      <a class="link youtube" href="https://www.youtube.com/@atelierduverdier" target="_blank" rel="noopener">
-        <span class="ico">
-          <svg viewBox="0 0 24 24"><path d="M23 7.5c-.27-1-1.05-1.8-2.05-2.07C19.15 5 12 5 12 5s-7.15 0-8.95.43C2.05 5.7 1.27 6.5 1 7.5.57 9.3.57 12 .57 12s0 2.7.43 4.5c.27 1 1.05 1.8 2.05 2.07C4.85 19 12 19 12 19s7.15 0 8.95-.43c1-.27 1.78-1.07 2.05-2.07.43-1.8.43-4.5.43-4.5s0-2.7-.43-4.5zM9.75 15.5v-7l6 3.5-6 3.5z"/></svg>
-        </span>
-        <span class="txt">YouTube<span class="sub">Mes vidéos et tutos en détail</span></span>
-        <span class="arrow">&rsaquo;</span>
-      </a>
+    <a class="lien laser" href="https://laser.atelierduverdier.fr/" target="_blank" rel="noopener">
+      <span class="ci">
+        <!-- La tête laser et son faisceau. L'icône d'avant — un trapèze et un
+             point — se lisait « ! » une fois ramenée à 19 px dans la pastille :
+             vu sur la capture, pas deviné. -->
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 2h9v5.2h-9V2zm1.2 7h6.6L12 16.4 8.7 9z"/><ellipse cx="12" cy="19.6" rx="3.6" ry="1.6" opacity=".5"/></svg>
+      </span>
+      <span class="txt">Mon atelier laser<span class="sub">LaserAtelier &middot; graver &amp; découper au laser sur ma PrintNC</span></span>
+      <span class="fleche" aria-hidden="true">&rsaquo;</span>
+    </a>
 
-      <a class="link github" href="https://github.com/atelierduverdier/printnc-config" target="_blank" rel="noopener">
-        <span class="ico">
-          <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.22.66-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.16.57.67.48A10 10 0 0 0 22 12 10 10 0 0 0 12 2z"/></svg>
-        </span>
-        <span class="txt">GitHub<span class="sub">Ma config LinuxCNC, en open source</span></span>
-        <span class="arrow">&rsaquo;</span>
-      </a>
+    <a class="lien instagram" href="https://www.instagram.com/atelierduverdier" target="_blank" rel="noopener">
+      <span class="ci">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.86s0 3.6-.07 4.86c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.9.07s-3.6 0-4.86-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.6 2.2 15.2 2.2 12s0-3.6.07-4.86c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.4 2.21 8.8 2.2 12 2.2zm0 1.8c-3.15 0-3.5 0-4.74.07-.9.04-1.38.2-1.7.32-.43.17-.74.37-1.06.7-.32.31-.52.62-.69 1.05-.12.32-.28.8-.32 1.7C3.2 9.1 3.2 9.45 3.2 12s0 2.9.07 4.13c.04.9.2 1.38.32 1.7.17.43.37.74.7 1.06.31.32.62.52 1.05.69.32.12.8.28 1.7.32 1.24.06 1.6.07 4.74.07s3.5 0 4.74-.07c.9-.04 1.38-.2 1.7-.32.43-.17.74-.37 1.06-.7.32-.31.52-.62.69-1.05.12-.32.28-.8.32-1.7.06-1.24.07-1.6.07-4.13s0-2.9-.07-4.13c-.04-.9-.2-1.38-.32-1.7a2.8 2.8 0 0 0-.7-1.06 2.8 2.8 0 0 0-1.05-.69c-.32-.12-.8-.28-1.7-.32C15.5 4 15.15 4 12 4zm0 3.06A4.94 4.94 0 1 0 12 17a4.94 4.94 0 0 0 0-9.88zM12 15.2A3.2 3.2 0 1 1 12 8.8a3.2 3.2 0 0 1 0 6.4zm6.3-8.34a1.15 1.15 0 1 1-2.3 0 1.15 1.15 0 0 1 2.3 0z"/></svg>
+      </span>
+      <span class="txt">Instagram<span class="sub">@atelierduverdier &middot; mes vidéos au quotidien</span></span>
+      <span class="fleche" aria-hidden="true">&rsaquo;</span>
+    </a>
 
-      <a class="link kofi" href="https://ko-fi.com/atelierduverdier" target="_blank" rel="noopener">
-        <span class="ico">
-          <svg viewBox="0 0 24 24"><path d="M5 3h13a3 3 0 0 1 3 3v1a4 4 0 0 1-4 4h-1.1A5 5 0 0 1 11 15H8a5 5 0 0 1-5-5V5a2 2 0 0 1 2-2zm12 6a2 2 0 0 0 2-2V6a1 1 0 0 0-1-1h-1v4h0zM4 19h14a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"/></svg>
-        </span>
-        <span class="txt">Offre-moi un café<span class="sub">Soutiens l'atelier sur Ko-fi</span></span>
-        <span class="arrow">&rsaquo;</span>
-      </a>
+    <a class="lien youtube" href="https://www.youtube.com/@atelierduverdier" target="_blank" rel="noopener">
+      <span class="ci">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.5c-.27-1-1.05-1.8-2.05-2.07C19.15 5 12 5 12 5s-7.15 0-8.95.43C2.05 5.7 1.27 6.5 1 7.5.57 9.3.57 12 .57 12s0 2.7.43 4.5c.27 1 1.05 1.8 2.05 2.07C4.85 19 12 19 12 19s7.15 0 8.95-.43c1-.27 1.78-1.07 2.05-2.07.43-1.8.43-4.5.43-4.5s0-2.7-.43-4.5zM9.75 15.5v-7l6 3.5-6 3.5z"/></svg>
+      </span>
+      <span class="txt">YouTube<span class="sub">Mes vidéos et tutos en détail</span></span>
+      <span class="fleche" aria-hidden="true">&rsaquo;</span>
+    </a>
 
-    </div>
+    <a class="lien github" href="https://github.com/atelierduverdier/printnc-config" target="_blank" rel="noopener">
+      <span class="ci">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.22.66-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.16.57.67.48A10 10 0 0 0 22 12 10 10 0 0 0 12 2z"/></svg>
+      </span>
+      <span class="txt">GitHub<span class="sub">Ma config LinuxCNC, en open source</span></span>
+      <span class="fleche" aria-hidden="true">&rsaquo;</span>
+    </a>
 
-    <footer>Atelier du Verdier &middot; Normandie</footer>
+    <a class="lien kofi" href="https://ko-fi.com/atelierduverdier" target="_blank" rel="noopener">
+      <span class="ci">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h13a3 3 0 0 1 3 3v1a4 4 0 0 1-4 4h-1.1A5 5 0 0 1 11 15H8a5 5 0 0 1-5-5V5a2 2 0 0 1 2-2zm12 6a2 2 0 0 0 2-2V6a1 1 0 0 0-1-1h-1v4h0zM4 19h14a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"/></svg>
+      </span>
+      <span class="txt">Offre-moi un café<span class="sub">Soutiens l'atelier sur Ko-fi</span></span>
+      <span class="fleche" aria-hidden="true">&rsaquo;</span>
+    </a>
 
   </div>
-  <script>
-    (function() {
-      var root = document.documentElement;
-      var KEY = 'theme';
 
-      // 1. Choix initial : preference memorisee, sinon reglage systeme
-      function themeInitial() {
-        var sauve = null;
-        try { sauve = localStorage.getItem(KEY); } catch (e) {}
-        if (sauve === 'light' || sauve === 'dark') return sauve;
-        return 'light'; // clair par defaut (au lieu de suivre le systeme)
-      }
+  <footer>
+    Atelier du Verdier &middot; Normandie &middot;
+    <a href="https://atelierduverdier.fr/" target="_blank" rel="noopener">atelierduverdier.fr</a>
+  </footer>
 
-      function appliquer(theme) {
-        if (theme === 'light') {
-          root.setAttribute('data-theme', 'light');
-        } else {
-          root.removeAttribute('data-theme');
-        }
-        // met a jour la couleur de la barre du navigateur (mobile)
-        var meta = document.querySelector('meta[name="theme-color"]');
-        if (meta) meta.setAttribute('content', theme === 'light' ? '#faf7f2' : '#13110e');
-      }
+</main>
 
-      appliquer(themeInitial());
+<!-- La bascule de thème vient du kit : cookie posé sur le domaine parent, donc
+     un visiteur qui choisit le sombre ici le retrouve sur les autres sites de
+     l'atelier. C'est tout l'intérêt d'avoir remplacé le localStorage qui était
+     écrit ici : localStorage est cloisonné par origine, le réglage ne passait
+     pas les sous-domaines. -->
+<script src="verdier.js"></script>
 
-      // 2. Bascule au clic + memorisation
-      var btn = document.getElementById('themeToggle');
-      if (btn) {
-        btn.addEventListener('click', function() {
-          var actuel = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
-          var nouveau = actuel === 'light' ? 'dark' : 'light';
-          appliquer(nouveau);
-          try { localStorage.setItem(KEY, nouveau); } catch (e) {}
-        });
-      }
-
-      // 3. Suit le systeme tant que l'utilisateur n'a pas choisi manuellement
-      window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', function(e) {
-        var sauve = null;
-        try { sauve = localStorage.getItem(KEY); } catch (e2) {}
-        if (!sauve) appliquer('light');
-      });
-    })();
-  </script>
 <!-- GoatCounter — même compte que les autres sites de l'atelier, sans cookie
      ni tiers publicitaire.
 

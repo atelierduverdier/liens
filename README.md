@@ -4,11 +4,23 @@ La page de liens de l'Atelier du Verdier : **une seule page**, écrite à la
 main, servie par GitHub Pages sur <https://liens.atelierduverdier.fr>.
 
 Le dépôt *est* le site. `index.html`, les favicons, l'image de partage, le
-`CNAME` — rien d'autre. Pas de générateur, pas de dépendance, pas d'étape de
-construction : ce qui est ici est exactement ce qui est servi.
+`CNAME`, la charte posée par le kit — rien d'autre. Pas de générateur, pas de
+dépendance, pas d'étape de construction : ce qui est ici est exactement ce qui
+est servi.
 
-Six liens : le site de l'atelier, LaserAtelier, Instagram, YouTube, le dépôt de
-la config PrintNC, Ko-fi.
+Sept liens : le site de l'atelier, le journal de la PrintNC, LaserAtelier,
+Instagram, YouTube, le dépôt de la config PrintNC, Ko-fi.
+
+## La charte
+
+Les couleurs, la bascule de thème et le chapeau viennent du **kit commun**, dans
+le dépôt [`site`](https://github.com/atelierduverdier/site) : `verdier-*.css`,
+`verdier.js`, `verdier-chapeau.svg`, `verdier-logo.svg` sont **posés ici** par
+son `outils/diffuser_kit.py`, avec un bandeau « engendré, ne pas éditer ici ».
+
+Cette page prend les **jetons seuls** — elle garde sa mise en page, une carte
+centrée. Le thème choisi part dans un cookie de domaine, donc il suit le
+visiteur sur `atelierduverdier.fr` et `laser.atelierduverdier.fr`.
 
 ## Modifier
 
