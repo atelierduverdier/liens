@@ -53,6 +53,7 @@
      @media (prefers-color-scheme: dark), et un visiteur en thème sombre
      recevait la page blanche. -->
 <link rel="stylesheet" href="verdier-jetons.css">
+<link rel="stylesheet" href="verdier-entete.css">
 <style>
   *{box-sizing:border-box; margin:0; padding:0}
 
@@ -67,12 +68,22 @@
     font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
     -webkit-font-smoothing:antialiased;
     min-height:100vh;
-    display:flex; flex-direction:column; align-items:center; justify-content:center;
-    padding:48px 20px;
+    /* Ni align-items ni justify-content : la barre du haut doit rester EN
+       HAUT, pas être centrée avec la carte. C'est `.carte-liens` qui prend
+       `margin:auto` et se centre dans la place restante — verticalement
+       comme horizontalement, les marges automatiques faisant les deux dans
+       un conteneur flex. Le padding descend sur la carte, pour que la barre
+       reste pleine largeur. */
+    display:flex; flex-direction:column;
+    padding:0;
   }
   :focus-visible{outline:2px solid var(--orange); outline-offset:2px; border-radius:4px}
 
-  .carte-liens{width:100%; max-width:460px; text-align:center}
+  /* max-width 500 et non 460 : les 20 px de padding sont passés du corps à
+     la carte, et box-sizing:border-box les compte dedans. La colonne de
+     contenu fait donc toujours 460 px, comme avant la barre. */
+  .carte-liens{width:100%; max-width:500px; text-align:center;
+    margin:auto; padding:48px 20px}
 
   /* La marque : le chapeau seul. Il est NOIR et porte son propre liseré blanc
      — c'est ce liseré qui le détache du fond sombre, et c'est pour ça qu'il
@@ -169,24 +180,48 @@
   footer a{color:var(--fg-3); text-decoration:none; border-bottom:1px solid var(--line-2)}
   footer a:hover{color:var(--orange-d); border-bottom-color:var(--orange)}
 
-  /* Le bouton ◐ de la charte, posé en coin plutôt que dans une barre du haut
-     qui n'existe pas ici. Sa classe .theme-btn est ce que verdier.js câble ;
-     le choix part dans un cookie de domaine, donc il suit le visiteur sur
-     atelierduverdier.fr et laser.atelierduverdier.fr. */
-  .theme-btn{
-    position:fixed; top:16px; right:16px;
-    width:38px; height:38px; border-radius:9px; flex:none;
-    border:1px solid var(--line-2); background:var(--card); color:var(--fg-2);
-    font-size:1.05rem; cursor:pointer;
-    transition:color .16s, border-color .16s, transform .16s;
-  }
-  .theme-btn:hover{color:var(--fg); border-color:var(--orange); transform:translateY(-1px)}
+  /* Le bouton ◐ n'est plus habillé ici : il a rejoint la barre du haut, et
+     c'est verdier-entete.css qui le dessine, comme sur les trois autres
+     adresses. Il était fixe au coin faute de barre où le mettre. Sa classe
+     .theme-btn reste ce que verdier.js câble ; le choix part dans un cookie
+     de domaine, donc il suit le visiteur sur atelierduverdier.fr,
+     printnc. et laser. */
+
+  /* .wrap — le conteneur centré que verdier-entete.css attend et que cette
+     page n'avait pas : sa carte fait 500 px, bien trop étroit pour une barre.
+     Mêmes valeurs que le .wrap de verdier.css. */
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 20px}
 </style>
 </head>
 <body>
 
-<button class="theme-btn" type="button" title="Thème clair / sombre"
-        aria-label="Basculer entre le thème clair et le thème sombre">◐</button>
+<!-- LA BARRE COMMUNE DE L'ATELIER — gabarit kit/entete.html du dépôt
+     « site », son CSS vient de verdier-entete.css.
+
+     Cette page-ci n'était pas un cul-de-sac comme le journal PrintNC et le
+     site laser l'étaient : sa première carte mène à l'atelier, et son pied
+     aussi. Ce que la barre apporte ici, c'est que les QUATRE adresses se
+     ressemblent — même marque, même sous-titre qui dit où l'on est, même
+     bouton de thème à la même place. -->
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="https://atelierduverdier.fr/" aria-label="Atelier du Verdier">
+      <img class="chapeau" src="verdier-chapeau.svg" alt="">
+      Atelier du Verdier
+      <span class="brand-sub">Mes liens</span>
+    </a>
+    <button class="nav-btn" type="button" aria-label="Ouvrir le menu"
+            aria-controls="menu-principal">&#9776;</button>
+    <nav class="navlinks" id="menu-principal">
+      <a href="https://atelierduverdier.fr/">Accueil</a>
+      <a href="https://atelierduverdier.fr/#logiciels">Logiciels</a>
+      <a href="https://atelierduverdier.fr/#atelier">L'atelier</a>
+      <a href="https://atelierduverdier.fr/projets/">Projets</a>
+    </nav>
+    <button class="theme-btn" type="button" title="Th&egrave;me clair / sombre"
+            aria-label="Basculer entre le th&egrave;me clair et le th&egrave;me sombre">&#9686;</button>
+  </div>
+</header>
 
 <main class="carte-liens">
 
