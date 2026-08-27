@@ -61,6 +61,17 @@
      (survols, halo du heros) reste chez le portail : il s'appuie sur les
      classes du kit, et c'est la lecon des 258 px. -->
 <link rel="stylesheet" href="verdier-mouvement.css">
+<!-- Ce que cette page donne A REVELER, avec SON nom de classe : le kit ne
+     connait que les siens, et n'en trouve aucun ici. Mesure le 27/08/2026 :
+     sur un telephone (375 x 812), TROIS des sept cartes tombent sous le pli
+     — c'est la que le fondu sert. Sur un grand ecran la page tient presque
+     d'un coup d'oeil, et le script ne marque que ce qui est hors champ :
+     rien ne bouge, sans qu'on ait a le dire.
+
+     Les cartes sont des <a> sans enfant positionne en absolu : le transform
+     que pose `.js-reveal` ne peut donc pas leur voler leur bloc conteneur
+     (le piege paye sur le portail le meme jour). -->
+<meta name="verdier-mouvement" content=".lien">
 <style>
   *{box-sizing:border-box; margin:0; padding:0}
 
