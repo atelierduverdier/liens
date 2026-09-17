@@ -7,7 +7,7 @@ fichier l'est aussi.
 
 **Une seule page**, `index.html`, écrite à la main : la page de liens de
 l'Atelier du Verdier, servie par GitHub Pages sur **`liens.atelierduverdier.fr`**
-(voir `CNAME`). Sept liens, les favicons, l'image de partage.
+(voir `CNAME`). Huit liens, les favicons, l'image de partage.
 
 Pas de générateur, pas de dépendance, pas d'étape de construction. Ce qui est
 dans le dépôt est exactement ce qui est servi.

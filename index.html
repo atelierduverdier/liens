@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Atelier du Verdier &mdash; Liens</title>
-<meta name="description" content="Tous les liens de l'Atelier du Verdier : le site de l'atelier, le journal de ma PrintNC, LaserAtelier, Instagram, YouTube et GitHub. CNC, fabrication numérique et bricolage en Normandie.">
+<meta name="description" content="Tous les liens de l'Atelier du Verdier : le site de l'atelier, le journal de ma PrintNC, LaserAtelier, le Chutier, Instagram, YouTube et GitHub. CNC, fabrication numérique et bricolage en Normandie.">
 
 <!-- Open Graph (partage Instagram, WhatsApp, Facebook...) -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Atelier du Verdier — Mes liens">
-<meta property="og:description" content="CNC, fabrication numérique et bricolage. Le site de l'atelier, le journal de ma PrintNC, Instagram, YouTube et GitHub.">
+<meta property="og:description" content="CNC, fabrication numérique et bricolage. Le site de l'atelier, le journal de ma PrintNC, le Chutier, Instagram, YouTube et GitHub.">
 <meta property="og:url" content="https://liens.atelierduverdier.fr/">
 <meta property="og:image" content="https://liens.atelierduverdier.fr/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -18,7 +18,7 @@
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Atelier du Verdier — Mes liens">
-<meta name="twitter:description" content="CNC, fabrication numérique et bricolage. Le site de l'atelier, le journal de ma PrintNC, Instagram, YouTube et GitHub.">
+<meta name="twitter:description" content="CNC, fabrication numérique et bricolage. Le site de l'atelier, le journal de ma PrintNC, le Chutier, Instagram, YouTube et GitHub.">
 <meta name="twitter:image" content="https://liens.atelierduverdier.fr/og-image.png">
 
 <!-- Favicons. Le SVG est le chapeau DU KIT (verdier-chapeau.svg) : la copie
@@ -148,6 +148,7 @@
   .liens .lien:nth-child(5){animation-delay:.28s}
   .liens .lien:nth-child(6){animation-delay:.34s}
   .liens .lien:nth-child(7){animation-delay:.40s}
+  .liens .lien:nth-child(8){animation-delay:.46s}
   @keyframes apparition{to{opacity:1; transform:translateY(0)}}
   @media (prefers-reduced-motion: reduce){
     .lien{animation:none; opacity:1; transform:none; transition:none}
@@ -167,6 +168,7 @@
   .lien.site{--marque:var(--orange)}
   .lien.printnc{--marque:#4f7fd1}
   .lien.laser{--marque:#ff3b30}
+  .lien.chutier{--marque:#3f6f60}
   .lien.instagram{--marque:#e1306c}
   .lien.youtube{--marque:#ff0000}
   .lien.github{--marque:#8b96a3}
@@ -280,6 +282,15 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 2h9v5.2h-9V2zm1.2 7h6.6L12 16.4 8.7 9z"/><ellipse cx="12" cy="19.6" rx="3.6" ry="1.6" opacity=".5"/></svg>
       </span>
       <span class="txt">Mon atelier laser<span class="sub">LaserAtelier &middot; graver &amp; découper au laser sur ma PrintNC</span></span>
+      <span class="fleche" aria-hidden="true">&rsaquo;</span>
+    </a>
+
+    <a class="lien chutier" href="https://atelierduverdier.fr/logiciels/chutier.html" target="_blank" rel="noopener">
+      <span class="ci">
+        <!-- Trois planches de longueurs différentes, empilées : un plan de débit en raccourci. -->
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="3.2" rx="1"/><rect x="2" y="10.4" width="13" height="3.2" rx="1"/><rect x="2" y="16.8" width="17" height="3.2" rx="1"/></svg>
+      </span>
+      <span class="txt">Le Chutier<span class="sub">Feuille de débit &middot; les chutes avant le bois neuf</span></span>
       <span class="fleche" aria-hidden="true">&rsaquo;</span>
     </a>
 
